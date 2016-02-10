@@ -1,0 +1,10 @@
+deployment/
+.classpath
+.project
+*.launch
+*.tmp
+*.lock
+.idea/
+.svn/
+.mendix-cache/
+theme/styles/.sass-cache
