@@ -1,4 +1,4 @@
-# UberMendixIntegration
+# Uber Mendix Integration
 This project is an example project to demonstrate how Mendix can be integrated to Uber. The project utilizes the REST and OAuth module from the appstores to show how users can login via Uber and search for prices, book taxis and see products.
 
 ## Setup
@@ -34,11 +34,11 @@ This constant should be filled with the client secret, which can be found on you
 #### Set up your project
 Once you have set up the constants you will need to configure the OAuth module in the running application. 
 
-1) Login with the MxAdmin username and password. Running locally this is usually set to MxAdmin and 1.
-2) Click on Administration and MxReflection
-3) Click on the module OauthModule and click Toggle module sync. Then click on Uber Integration and toggle module sync. Then click Synchronize objects.
-4) Click on Administration menu and Get or Create Auth Config
-5) In the Resolve user section select the microflow `OauthModule.ResolveUserByEmail`.
-6) Then tick the Uber option and in the dialog box that appears enter `email`. Then click save.
+1) Login with the MxAdmin username and password. Running locally this is usually set to MxAdmin and 1.<br/>
+2) Click on Administration and MxReflection<br/>
+3) Click on the module OauthModule and click Toggle module sync. Then click on Uber Integration and toggle module sync. Then click Synchronize objects.<br/>
+4) Click on Administration menu and Get or Create Auth Config<br/>
+5) In the Resolve user section select the microflow `OauthModule.ResolveUserByEmail`.<br/>
+6) Then tick the Uber option and in the dialog box that appears enter `email`. Then click save.<br/>
 
 You will now all be set up so that you can login via uber, search and book. 
