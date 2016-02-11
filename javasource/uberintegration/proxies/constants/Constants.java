@@ -15,11 +15,6 @@ public class Constants
 		return (String)Core.getConfiguration().getConstantValue("UberIntegration.AuthorizeURL");
 	}
 
-	public static String getClientID()
-	{
-		return (String)Core.getConfiguration().getConstantValue("UberIntegration.ClientID");
-	}
-
 	public static String getProductionURL()
 	{
 		return (String)Core.getConfiguration().getConstantValue("UberIntegration.ProductionURL");
