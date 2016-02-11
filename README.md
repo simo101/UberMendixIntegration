@@ -2,7 +2,7 @@
 This project is an example project to demonstrate how Mendix can be integrated to Uber. The project utilizes the REST and OAuth module from the appstores to show how users can login via Uber and search for prices, book taxis and see products.
 
 ## Setup
-In order to use the application you will need an uber developers account. To register with uber developer simply go to: (https://developer.uber.com/)[https://developer.uber.com/] and click Manage Apps.
+In order to use the application you will need an uber developers account. To register with uber developer simply go to: [https://developer.uber.com/](https://developer.uber.com/) and click Manage Apps.
 
 ### Create New App Uber App
 <img src="./img/uberSignup.PNG"></img>
