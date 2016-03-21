@@ -261,16 +261,16 @@ public class OauthCallback extends RequestHandler{
 			OAuthConfig configuration = getConfig(context);
 			
 			if(pathParameters[1].equals("google")){
-			 user =resolveUser(context, jsonObj.get(configuration.getUserId_Google()).toString(),configuration);
+			 user =resolveUser(context, jsonObj.get(configuration.getUserId_Google()).toString(),configuration,accessToken);
 			}
 			else if(pathParameters[1].equals("linkedin")){
-				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Linkedin()).toString(),configuration);
+				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Linkedin()).toString(),configuration,accessToken);
 			}
 			else if(pathParameters[1].equals("facebook")){
-				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Facebook()).toString(),configuration);
+				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Facebook()).toString(),configuration,accessToken);
 			}
 			else if(pathParameters[1].equals("uber")){
-				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Uber()).toString(),configuration);
+				 user =resolveUser(context, jsonObj.get(configuration.getUserId_Uber()).toString(),configuration,accessToken);
 			}
 
 			if(user != null){
@@ -301,7 +301,7 @@ public class OauthCallback extends RequestHandler{
 	/**
 	 * Method to call a microflow that will resolve the user based on the mfInput parameter
 	 */
-	private User resolveUser(IContext context, String mfInput, OAuthConfig configuration) {
+	private User resolveUser(IContext context, String mfInput, OAuthConfig configuration, String accessToken) {
 		try {
 			Microflows microflow = configuration.getOAuthConfig_Microflows();
 			if (microflow == null) {
@@ -312,8 +312,11 @@ public class OauthCallback extends RequestHandler{
 			String actionName = microflow.getCompleteName();
 			Map<String, IDataType> inputParameters = Core.getInputParameters(actionName);
 			for (String name : inputParameters.keySet()) {
-				params.put(name, mfInput);
-				break;
+				if(name.equals("Email")){
+					params.put(name, mfInput);
+				}else{
+					params.put(name, accessToken);
+				}
 			}
 			Core.getLogger("OauthCallback").debug("Calling action "+actionName+" with params: "+params);
 			Object result = Core.execute(context, actionName, params);
